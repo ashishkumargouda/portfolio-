@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Ashish Kumar Gouda — Prompt Engineer & AI Automation Architect Portfolio. Specializing in system prompt design, chain-of-thought, AI agents, and RAG systems." />
+<meta name="author" content="Ashish Kumar Gouda" />
+<meta name="keywords" content="Prompt Engineer, System Prompt, AI Agents, RAG, Chain of Thought, Automation, n8n, Portfolio, Odisha, India" />
+<meta name="robots" content="index, follow" />
+<title>Ashish Kumar Gouda • Prompt Engineer & AI Architect</title>
+
+<!-- Open Graph / Social Media -->
+<meta property="og:title" content="Ashish Kumar Gouda — Prompt Engineer & AI Architect" />
+<meta property="og:description" content="Crafting intelligent prompts, designing AI agents, and architecting automation. Physics student turned AI specialist from Odisha, India." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ashishgouda.dev" />
+<meta property="og:image" content="https://ashishgouda.dev/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ashish Kumar Gouda — Prompt Engineer & AI Architect" />
+<meta name="twitter:description" content="Crafting intelligent prompts, designing AI agents, and architecting automation. Open to opportunities!" />
+<meta name="twitter:image" content="https://ashishgouda.dev/og-image.jpg" />
+<link rel="canonical" href="https://ashishgouda.dev" />
+
+<!-- Fonts (preconnected for faster loading) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@500;700&family=Dancing+Script:wght@600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Serif+JP:wght@500;700&family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ashish Kumar Gouda",
+  "givenName": "Ashish",
+  "familyName": "Gouda",
+  "jobTitle": "Prompt Engineer & AI Automation Architect",
+  "description": "Prompt Engineer and AI Automation Architect specializing in system prompt design, chain-of-thought architectures, and AI agent development.",
+  "url": "https://ashishgouda.dev",
+  "email": "asishgouda26@gmail.com",
+  "telephone": "+917847099747",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Odisha",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://github.com/ashishkumargouda",
+    "https://www.linkedin.com/in/ashish-gouda-350644407"
+  ],
+  "knowsAbout": [
+    "Prompt Engineering","Artificial Intelligence","System Prompt Design",
+    "Chain-of-Thought","Python Programming","Automation","RAG Systems","AI Agents"
+  ],
+  "seeks": "Job opportunities in Prompt Engineering and AI Automation"
+}
+</script>
+
+<style>
+/* ===================== ROOT TOKENS ===================== */
+:root{
+  --bg-deep:#0a0a1f;
+  --bg-soft:#13132b;
+  --bg-glass:rgba(20,20,45,0.55);
+  --pink:#ff7eb9;
+  --coral:#ff7e5f;
+  --cyan:#00f0ff;
+  --gold:#ffd700;
+  --text:#ffffff;
+  --muted:#b8b8d4;
+  --grad-hero:linear-gradient(135deg,#ff7eb9 0%,#ff7e5f 50%,#00f0ff 100%);
+  --grad-gold:linear-gradient(135deg,#ffd700,#ff7e5f);
+  --shadow-glow:0 0 40px rgba(255,126,185,.35);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg-deep);
+  color:var(--text);
+  overflow-x:hidden;
+  cursor:none;
+  line-height:1.6;
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  body{cursor:auto}
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:none;border:none;background:none;color:inherit}
+::selection{background:var(--pink);color:#0a0a1f}
+
+/* ===================== CUSTOM CURSOR ===================== */
+.cursor-dot,.cursor-ring{
+  position:fixed;top:0;left:0;pointer-events:none;z-index:9999;
+  border-radius:50%;transform:translate(-50%,-50%);
+}
+.cursor-dot{width:8px;height:8px;background:var(--pink);box-shadow:0 0 12px var(--pink)}
+.cursor-ring{width:36px;height:36px;border:2px solid var(--cyan);transition:transform .2s,background .2s,width .2s,height .2s}
+.cursor-ring.hover{width:60px;height:60px;background:rgba(0,240,255,.15)}
+@media(max-width:768px),(hover:none),(pointer:coarse){
+  .cursor-dot,.cursor-ring{display:none!important}
+  body{cursor:auto}
+  button{cursor:pointer}
+  a{cursor:pointer}
+  input,textarea{cursor:text}
+  .hamburger{cursor:pointer}
+}
+
+/* ===================== PRELOADER ===================== */
+#preloader{
+  position:fixed;inset:0;background:var(--bg-deep);z-index:10000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .8s ease, visibility .8s ease;
+}
+#preloader.hidden{opacity:0;visibility:hidden}
+.sakura-loader{
+  width:90px;height:90px;animation:spin 2.4s linear infinite;
+  filter:drop-shadow(0 0 18px var(--pink));
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.preloader-text{
+  margin-top:1.4rem;font-family:'Noto Serif JP',serif;font-size:1.6rem;
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+  letter-spacing:.3em;
+}
+.preloader-sub{font-family:'Dancing Script',cursive;color:var(--muted);font-size:1.1rem;margin-top:.3rem}
+
+/* ===================== PARTICLE CANVAS ===================== */
+#sakura-canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
+#stars-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ===================== NAVBAR ===================== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1rem clamp(1rem,4vw,3rem);
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(10,10,31,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:padding .3s;
+}
+.navbar.scrolled{padding:.6rem clamp(1rem,4vw,3rem);background:rgba(10,10,31,.85)}
+.logo{
+  font-family:'Cinzel',serif;font-size:1.4rem;font-weight:700;
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+  display:flex;align-items:center;gap:.5rem;
+}
+.logo span{font-family:'Noto Serif JP',serif;color:var(--pink);-webkit-text-fill-color:var(--pink)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  position:relative;font-weight:500;font-size:.95rem;color:var(--muted);
+  transition:color .3s;padding:.3rem 0;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;
+  background:var(--grad-hero);transition:width .35s ease;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  width:44px;height:44px;cursor:pointer;
+  padding:7px;align-items:center;justify-content:center;z-index:1000;
+}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:.3s;border-radius:2px}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:75%;height:100vh;
+    flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;
+    background:rgba(10,10,31,.97);backdrop-filter:blur(24px);
+    transition:right .5s cubic-bezier(.77,0,.18,1);
+  }
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1.1rem}
+  .hamburger{display:flex}
+}
+
+/* ===================== HERO ===================== */
+.hero{
+  min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;
+  padding:8rem clamp(1rem,4vw,3rem) 4rem;z-index:2;overflow:hidden;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center;
+  max-width:1300px;width:100%;
+}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;text-align:center}}
+.kanji-watermark{
+  position:absolute;font-family:'Noto Serif JP',serif;
+  font-size:clamp(8rem,22vw,20rem);color:rgba(255,126,185,.05);
+  top:50%;left:50%;transform:translate(-50%,-50%);z-index:-1;font-weight:700;
+  pointer-events:none;user-select:none;
+}
+.hero-greet{
+  font-family:'Dancing Script',cursive;font-size:clamp(1.3rem,2.4vw,1.8rem);
+  color:var(--gold);margin-bottom:.5rem;opacity:0;
+}
+.hero-name{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(2.6rem,7vw,5.5rem);line-height:1.05;letter-spacing:-.02em;
+  margin-bottom:1rem;
+}
+.hero-name .letter{display:inline-block;opacity:0;transform:translateY(40px)}
+.hero-name .gradient{
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.typewriter-wrap{
+  font-family:'JetBrains Mono',monospace;font-size:clamp(1rem,1.8vw,1.4rem);
+  color:var(--cyan);min-height:2em;margin-bottom:1.5rem;opacity:0;
+}
+.typewriter-wrap::before{content:'> '}
+.typewriter::after{content:'|';animation:blink 1s infinite;color:var(--pink)}
+@keyframes blink{50%{opacity:0}}
+.hero-tagline{
+  color:var(--muted);font-size:clamp(.95rem,1.2vw,1.1rem);max-width:540px;margin-bottom:2rem;opacity:0;
+}
+@media(max-width:900px){.hero-tagline{margin:0 auto 2rem}}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;opacity:0}
+@media(max-width:900px){.hero-cta{justify-content:center}}
+.btn{
+  position:relative;padding:.95rem 2rem;border-radius:50px;font-weight:600;
+  font-size:.95rem;letter-spacing:.05em;overflow:hidden;
+  transition:transform .3s, box-shadow .3s;display:inline-flex;align-items:center;gap:.5rem;
+  cursor:pointer;
+}
+.btn-primary{background:var(--grad-hero);color:#0a0a1f;box-shadow:var(--shadow-glow)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 50px rgba(255,126,185,.6)}
+.btn-outline{border:2px solid var(--cyan);color:var(--cyan)}
+.btn-outline:hover{background:var(--cyan);color:#0a0a1f;box-shadow:0 0 30px var(--cyan)}
+.btn::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);
+  transform:translateX(-100%);transition:transform .6s;
+}
+.btn:hover::after{transform:translateX(100%)}
+
+/* Avatar */
+.avatar-wrap{
+  position:relative;width:clamp(260px,32vw,400px);aspect-ratio:1;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;animation:float 6s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.avatar-ring{
+  position:absolute;inset:-12px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--pink),var(--coral),var(--cyan),var(--gold),var(--pink));
+  animation:rotate 8s linear infinite;filter:blur(2px);
+}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.avatar-ring::after{
+  content:'';position:absolute;inset:6px;background:var(--bg-deep);border-radius:50%;
+}
+.avatar-img{
+  position:relative;width:100%;height:100%;border-radius:50%;
+  object-fit:cover;z-index:2;
+  filter:contrast(1.18) saturate(1.45) brightness(1.05) url(#animeFilter);
+  box-shadow:0 0 60px rgba(255,126,185,.4);
+  transition:transform .4s;
+}
+.avatar-wrap:hover .avatar-img{transform:scale(1.04) rotate(-2deg)}
+.orbit-petal{
+  position:absolute;width:24px;height:24px;font-size:24px;
+  animation:orbit 12s linear infinite;
+}
+.orbit-petal:nth-child(3){animation-delay:-3s;animation-duration:14s}
+.orbit-petal:nth-child(4){animation-delay:-6s;animation-duration:10s}
+.orbit-petal:nth-child(5){animation-delay:-9s;animation-duration:16s}
+@keyframes orbit{
+  from{transform:rotate(0deg) translateX(180px) rotate(0deg)}
+  to{transform:rotate(360deg) translateX(180px) rotate(-360deg)}
+}
+@media(max-width:600px){
+  @keyframes orbit{
+    from{transform:rotate(0deg) translateX(140px) rotate(0deg)}
+    to{transform:rotate(360deg) translateX(140px) rotate(-360deg)}
+  }
+}
+
+/* Fuji silhouette */
+.fuji{
+  position:absolute;bottom:0;left:0;right:0;width:100%;height:auto;z-index:-1;opacity:.5;
+  pointer-events:none;
+}
+
+/* ===================== SECTION SHARED ===================== */
+section{position:relative;z-index:2;padding:6rem clamp(1rem,4vw,3rem)}
+.container{max-width:1200px;margin:0 auto}
+.section-title{
+  font-family:'Cinzel',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;
+  text-align:center;margin-bottom:.5rem;letter-spacing:.02em;
+}
+.section-title .accent{
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.section-sub{
+  text-align:center;color:var(--muted);font-family:'Dancing Script',cursive;
+  font-size:1.4rem;margin-bottom:3.5rem;
+}
+.section-sub::before,.section-sub::after{content:'❀';margin:0 .8rem;color:var(--pink)}
+
+/* ===================== ABOUT ===================== */
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:center}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+.about-card{
+  background:var(--bg-glass);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);
+  padding:2rem;position:relative;overflow:hidden;
+}
+.about-card::before{
+  content:'夢';position:absolute;font-family:'Noto Serif JP',serif;font-size:14rem;
+  top:-2rem;right:-3rem;color:rgba(255,126,185,.06);font-weight:700;line-height:1;
+}
+.about-card h3{
+  font-family:'Cinzel',serif;font-size:1.6rem;margin-bottom:1rem;color:var(--gold);
+}
+.about-card p{color:var(--muted);margin-bottom:1rem;font-size:1.02rem}
+.about-card p strong{color:var(--text)}
+.signature{
+  font-family:'Dancing Script',cursive;font-size:2rem;
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-top:1rem;display:inline-block;
+}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
+.stat{
+  text-align:center;padding:1rem .5rem;border-radius:12px;
+  background:rgba(255,126,185,.08);border:1px solid rgba(255,126,185,.15);
+}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--cyan);line-height:1}
+.stat-label{font-size:.75rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
+
+/* ===================== SKILLS ===================== */
+.skills-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-bottom:3rem}
+.skill-ring{
+  background:var(--bg-glass);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:1.5rem;text-align:center;
+  transition:transform .3s, box-shadow .3s;
+}
+.skill-ring:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,240,255,.18)}
+.ring-svg{width:120px;height:120px;margin:0 auto .8rem;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:rgba(255,255,255,.08);stroke-width:8}
+.ring-fill{
+  fill:none;stroke:url(#ringGrad);stroke-width:8;stroke-linecap:round;
+  stroke-dasharray:314;
+  animation:ringSweep 3.5s ease-in-out infinite alternate;
+}
+@keyframes ringSweep{0%{stroke-dashoffset:240}100%{stroke-dashoffset:60}}
+.ring-icon{
+  position:relative;margin-top:-82px;font-size:2rem;
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 8px rgba(255,126,185,.4));
+}
+.skill-name{font-weight:600;font-size:1.05rem;margin-top:1.6rem;color:var(--text)}
+.skill-tag{
+  display:inline-block;margin-top:.5rem;padding:.25rem .85rem;border-radius:50px;
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+}
+.tag-strong{background:rgba(255,215,0,.12);color:var(--gold);border:1px solid rgba(255,215,0,.3)}
+.tag-learning{background:rgba(0,240,255,.1);color:var(--cyan);border:1px solid rgba(0,240,255,.3)}
+.skill-note{margin-top:.8rem;font-family:'Dancing Script',cursive;font-size:1rem;color:var(--muted);font-style:italic}
+.growth-quote{
+  text-align:center;margin-top:3.5rem;font-family:'Dancing Script',cursive;
+  font-size:clamp(1.2rem,2vw,1.6rem);color:var(--muted);
+  max-width:720px;margin-left:auto;margin-right:auto;line-height:1.6;
+}
+.growth-quote::before,.growth-quote::after{content:'❀';margin:0 .8rem;color:var(--pink)}
+.skill-chips{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.chip{
+  padding:.5rem 1.1rem;border-radius:50px;
+  background:rgba(0,240,255,.08);border:1px solid rgba(0,240,255,.25);
+  font-size:.85rem;color:var(--cyan);transition:.3s;
+}
+.chip:hover{background:var(--cyan);color:#0a0a1f;box-shadow:0 0 18px var(--cyan)}
+
+/* ===================== PROBLEMS ===================== */
+.problems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.problem-card{
+  background:linear-gradient(145deg,rgba(255,126,185,.08),rgba(0,240,255,.05));
+  border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);
+  padding:2rem 1.6rem;position:relative;overflow:hidden;
+  transition:transform .4s ease, box-shadow .4s ease;
+  transform-style:preserve-3d;
+}
+.problem-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,215,0,.18),transparent 60%);
+  opacity:0;transition:opacity .3s;
+}
+.problem-card:hover::before{opacity:1}
+.problem-card:hover{box-shadow:0 20px 50px rgba(255,126,185,.25)}
+.problem-icon{
+  width:56px;height:56px;border-radius:14px;
+  background:var(--grad-hero);display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;margin-bottom:1rem;box-shadow:0 8px 24px rgba(255,126,185,.3);
+}
+.problem-card h4{font-family:'Cinzel',serif;font-size:1.2rem;margin-bottom:.6rem}
+.problem-card p{color:var(--muted);font-size:.92rem}
+
+/* ===================== TOOLS ===================== */
+.tools-marquee{
+  overflow:hidden;position:relative;padding:1rem 0;
+  mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+}
+.tools-track{display:flex;gap:2.5rem;width:max-content;animation:scroll 25s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.tool{
+  display:flex;align-items:center;gap:.7rem;
+  padding:1rem 1.8rem;border-radius:50px;
+  background:var(--bg-glass);border:1px solid rgba(255,255,255,.1);
+  font-weight:600;font-size:1rem;white-space:nowrap;transition:.3s;
+}
+.tool:hover{transform:scale(1.06);border-color:var(--gold);box-shadow:0 0 20px rgba(255,215,0,.3)}
+.tool-emoji{font-size:1.4rem}
+
+/* ===================== TIMELINE ===================== */
+.timeline{position:relative;max-width:800px;margin:0 auto;padding:1rem 0}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,var(--pink),var(--coral),var(--cyan));
+  transform:translateX(-50%);border-radius:3px;
+}
+@media(max-width:768px){.timeline::before{left:20px}}
+.tl-item{position:relative;width:50%;padding:1.5rem 2.5rem}
+.tl-item:nth-child(odd){left:0;text-align:right}
+.tl-item:nth-child(even){left:50%}
+@media(max-width:768px){
+  .tl-item,.tl-item:nth-child(even){width:100%;left:0;padding:1rem 1rem 1rem 3.5rem;text-align:left}
+  .tl-item:nth-child(odd){text-align:left}
+}
+.tl-dot{
+  position:absolute;top:1.8rem;width:18px;height:18px;border-radius:50%;
+  background:var(--grad-hero);box-shadow:0 0 18px var(--pink);z-index:2;
+}
+.tl-item:nth-child(odd) .tl-dot{right:-9px}
+.tl-item:nth-child(even) .tl-dot{left:-9px}
+@media(max-width:768px){.tl-item .tl-dot{left:11px!important;right:auto!important}}
+.tl-content{
+  background:var(--bg-glass);border:1px solid rgba(255,255,255,.08);
+  padding:1.4rem 1.6rem;border-radius:var(--radius);transition:.3s;
+}
+.tl-content:hover{border-color:var(--pink);transform:translateY(-3px)}
+.tl-year{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold);letter-spacing:.1em}
+.tl-content h4{font-family:'Cinzel',serif;margin:.3rem 0 .4rem;font-size:1.1rem}
+.tl-content p{color:var(--muted);font-size:.92rem}
+
+/* ===================== GITHUB ===================== */
+.github-card{
+  background:linear-gradient(135deg,rgba(255,126,185,.1),rgba(0,240,255,.08));
+  border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);
+  padding:3rem 2rem;text-align:center;max-width:700px;margin:0 auto;
+  position:relative;overflow:hidden;
+}
+.github-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 20%,rgba(255,215,0,.15),transparent 50%);
+}
+.github-card svg{width:64px;height:64px;margin-bottom:1rem;color:var(--text);position:relative}
+.github-card h3{font-family:'Cinzel',serif;font-size:1.6rem;margin-bottom:.6rem;position:relative}
+.github-card p{color:var(--muted);margin-bottom:1.6rem;position:relative}
+
+/* ===================== CONTACT ===================== */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.contact-info h3{font-family:'Cinzel',serif;font-size:1.5rem;margin-bottom:1rem;color:var(--gold)}
+.contact-info p{color:var(--muted);margin-bottom:1.5rem}
+.info-item{
+  display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;
+  padding:.9rem 1rem;border-radius:12px;background:var(--bg-glass);
+  border:1px solid rgba(255,255,255,.06);transition:.3s;
+}
+.info-item:hover{border-color:var(--pink);transform:translateX(6px)}
+.info-icon{
+  width:42px;height:42px;border-radius:10px;
+  background:var(--grad-hero);display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.info-item .label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.info-item .value{font-weight:500;font-size:.95rem;word-break:break-all}
+.socials{display:flex;gap:1rem;margin-top:1.5rem}
+.social{
+  width:46px;height:46px;border-radius:50%;
+  background:var(--bg-glass);border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;transition:.3s;
+}
+.social:hover{background:var(--grad-hero);transform:translateY(-4px) rotate(8deg);box-shadow:var(--shadow-glow)}
+.social svg{width:20px;height:20px}
+
+.contact-form{
+  background:var(--bg-glass);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:2rem;
+}
+.form-group{position:relative;margin-bottom:1.5rem}
+.form-group input,.form-group textarea{
+  width:100%;padding:1rem;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;
+  color:var(--text);font-family:inherit;font-size:.95rem;transition:.3s;
+}
+.form-group textarea{resize:vertical;min-height:130px}
+.form-group input::placeholder,.form-group textarea::placeholder{color:transparent}
+.form-group label{
+  position:absolute;top:1rem;left:1rem;color:var(--muted);
+  pointer-events:none;transition:.3s;background:transparent;padding:0 .3rem;
+}
+.form-group input:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,126,185,.15);
+}
+.form-group input:focus+label,
+.form-group textarea:focus+label,
+.form-group input:not(:placeholder-shown)+label,
+.form-group textarea:not(:placeholder-shown)+label{
+  top:-.6rem;left:.8rem;font-size:.75rem;color:var(--pink);background:var(--bg-soft);padding:0 .3rem;
+}
+.form-msg{
+  margin-top:1rem;padding:.8rem;border-radius:8px;text-align:center;
+  font-size:.9rem;display:none;
+}
+.form-msg.success{display:block;background:rgba(0,240,255,.1);border:1px solid var(--cyan);color:var(--cyan)}
+.form-msg.error{display:block;background:rgba(255,126,95,.1);border:1px solid var(--coral);color:var(--coral)}
+.form-msg a{color:var(--cyan);text-decoration:underline;font-weight:600}
+.btn-loading{opacity:.7;pointer-events:none;position:relative}
+.btn-loading::before{
+  content:'';position:absolute;left:50%;top:50%;width:18px;height:18px;
+  border:2px solid rgba(0,0,0,.2);border-top-color:#0a0a1f;border-radius:50%;
+  transform:translate(-50%,-50%);animation:spin .8s linear infinite;
+}
+
+/* ===================== FOOTER ===================== */
+footer{
+  text-align:center;padding:3rem 1rem 2rem;
+  border-top:1px solid rgba(255,255,255,.06);
+  background:rgba(10,10,31,.6);position:relative;z-index:2;
+}
+.footer-sig{
+  font-family:'Dancing Script',cursive;font-size:2rem;
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:.4rem;
+}
+footer p{color:var(--muted);font-size:.88rem}
+footer .heart{color:var(--pink);animation:beat 1.5s infinite;display:inline-block}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+
+/* ===================== REVEAL ANIMATION ===================== */
+.reveal{opacity:0;transform:translateY(50px);transition:opacity .9s ease, transform .9s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Scroll bar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:var(--grad-hero);border-radius:8px}
+
+/* ===================== PRINT STYLES ===================== */
+@media print{
+  body{background:#fff!important;color:#000!important;cursor:auto!important}
+  .cursor-dot,.cursor-ring,#sakura-canvas,#stars-canvas,
+  .navbar,.hero-cta .btn-outline,#contactForm,
+  .kanji-watermark,.avatar-ring,.orbit-petal,.fuji,#preloader{display:none!important}
+  .hero-grid{grid-template-columns:1fr!important;text-align:center!important}
+  .hero-name,.hero-name .gradient{color:#000!important;-webkit-text-fill-color:#000!important;background:none!important}
+  section{padding:2rem 1rem!important;page-break-inside:avoid}
+  .section-title{font-size:2rem!important;color:#000!important}
+  .section-title .accent{color:#333!important;-webkit-text-fill-color:#333!important;background:none!important}
+  .about-grid,.contact-grid{grid-template-columns:1fr!important}
+  .btn{border:2px solid #333!important;color:#333!important;background:none!important;box-shadow:none!important}
+  .avatar-img{max-width:200px!important;margin:0 auto!important;filter:none!important}
+  a{color:#06c!important;text-decoration:underline!important}
+  .skill-ring,.problem-card,.about-card,.tl-content,.info-item,.github-card{
+    background:#fff!important;border:1px solid #ccc!important;color:#000!important;
+  }
+  p,.skill-name,h3,h4,.tl-year{color:#000!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== SVG FILTERS ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="animeFilter">
+      <feGaussianBlur stdDeviation="0.6"/>
+      <feColorMatrix type="matrix" values="1.1 0 0 0 0  0 1.05 0 0 0  0 0 1.1 0 0  0 0 0 1 0"/>
+    </filter>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7eb9"/>
+      <stop offset="50%" stop-color="#ff7e5f"/>
+      <stop offset="100%" stop-color="#00f0ff"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- ===================== CUSTOM CURSOR ===================== -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- ===================== PRELOADER ===================== -->
+<div id="preloader" role="status" aria-label="Loading">
+  <svg class="sakura-loader" viewBox="0 0 100 100" aria-hidden="true">
+    <g fill="#ff7eb9">
+      <ellipse cx="50" cy="22" rx="10" ry="16"/>
+      <ellipse cx="76" cy="38" rx="10" ry="16" transform="rotate(60 76 38)"/>
+      <ellipse cx="76" cy="62" rx="10" ry="16" transform="rotate(120 76 62)"/>
+      <ellipse cx="50" cy="78" rx="10" ry="16"/>
+      <ellipse cx="24" cy="62" rx="10" ry="16" transform="rotate(60 24 62)"/>
+      <ellipse cx="24" cy="38" rx="10" ry="16" transform="rotate(120 24 38)"/>
+      <circle cx="50" cy="50" r="6" fill="#ffd700"/>
+    </g>
+  </svg>
+  <div class="preloader-text">ようこそ</div>
+  <div class="preloader-sub">Welcome to my world…</div>
+</div>
+
+<!-- ===================== BACKGROUND CANVASES ===================== -->
+<canvas id="stars-canvas" aria-hidden="true"></canvas>
+<canvas id="sakura-canvas" aria-hidden="true"></canvas>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="logo">A<span>桜</span>K</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#problems">Solutions</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#education">Journey</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="kanji-watermark" aria-hidden="true">創</div>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-greet">こんにちは・Hello, I'm</div>
+      <h1 class="hero-name" id="heroName"></h1>
+      <div class="typewriter-wrap"><span class="typewriter" id="typewriter" aria-live="polite"></span></div>
+      <p class="hero-tagline">Crafting intelligent prompts, designing AI agents, and architecting automation that turns ideas into magic. Currently mastering the art of making machines think beautifully.</p>
+      <div class="hero-cta">
+        <a href="#problems" class="btn btn-primary">✦ View My Work</a>
+        <a href="#contact" class="btn btn-outline">✉ Hire Me</a>
+      </div>
+    </div>
+    <div class="avatar-wrap">
+      <div class="avatar-ring" aria-hidden="true"></div>
+      <img class="avatar-img"
+           src="https://oci-useast-backend-public.dupdub.com/subtitles/image/613de882-b178-4b90-9f4b-ea46dadf0348.png"
+           loading="lazy"
+           decoding="async"
+           onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22><stop offset=%220%22 stop-color=%22%23ff7eb9%22/><stop offset=%221%22 stop-color=%22%2300f0ff%22/></linearGradient></defs><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22url(%23g)%22/><text x=%2250%22 y=%2262%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2238%22 font-family=%22Arial%22 font-weight=%22bold%22>AK</text></svg>';"
+           alt="Ashish Kumar Gouda - Prompt Engineer" />
+      <div class="orbit-petal" aria-hidden="true">🌸</div>
+      <div class="orbit-petal" aria-hidden="true">❀</div>
+      <div class="orbit-petal" aria-hidden="true">✦</div>
+      <div class="orbit-petal" aria-hidden="true">🌸</div>
+    </div>
+  </div>
+  <svg class="fuji" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,200 L0,140 L300,60 L420,90 L600,30 L780,80 L900,50 L1100,110 L1280,70 L1440,130 L1440,200 Z" fill="url(#fujiGrad)"/>
+    <defs>
+      <linearGradient id="fujiGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ff7eb9" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#0a0a1f" stop-opacity="1"/>
+      </linearGradient>
+    </defs>
+  </svg>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title reveal">About <span class="accent">Me</span></h2>
+    <p class="section-sub reveal">A glimpse into my story</p>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <h3>The Dreamer</h3>
+        <p>I'm <strong>Ashish</strong>, a Physics Honours undergraduate from Odisha, India — but my truest passion lives in the world of <strong>Artificial Intelligence</strong>.</p>
+        <p>For the past year, I've been deeply hands-on with <strong>Prompt Engineering</strong>, <strong>System Prompt Design</strong>, and <strong>Chain-of-Thought architectures</strong>. Currently expanding into Python, automation, and AI/ML.</p>
+        <p>I'm a fresher with no job yet — but I bring something rare: <strong>relentless curiosity</strong> and a craftsman's obsession with clarity. I'm searching for my first role at a company that feels like home. 🏡</p>
+        <span class="signature">— Ashish 🌸</span>
+      </div>
+      <div class="reveal">
+        <h3 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:1rem">My Philosophy</h3>
+        <p style="color:var(--muted);margin-bottom:1rem">Great prompts aren't written — they're <em style="color:var(--gold)">composed</em>, like haiku. Every word, every structure, every constraint matters. I believe the future belongs to those who can speak fluently with intelligent systems.</p>
+        <p style="color:var(--muted)">From building <strong style="color:var(--text)">RAG pipelines</strong> to designing <strong style="color:var(--text)">evaluation frameworks</strong>, I treat each problem like a piece of art waiting to be sculpted.</p>
+        <div class="about-stats">
+          <div class="stat"><div class="stat-num">1+</div><div class="stat-label">Year Hands-on</div></div>
+          <div class="stat"><div class="stat-num">5+</div><div class="stat-label">AI Tools Mastered</div></div>
+          <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Curiosity</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title reveal">My <span class="accent">Arsenal</span></h2>
+    <p class="section-sub reveal">Skills I've built — and the ones I'm building</p>
+
+    <div class="skills-wrap">
+      <div class="skill-ring reveal">
+        <svg class="ring-svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="50"/>
+          <circle class="ring-fill" cx="60" cy="60" r="50"/>
+        </svg>
+        <div class="ring-icon">✦</div>
+        <div class="skill-name">Prompt Engineering</div>
+        <div class="skill-tag tag-strong">Core Strength</div>
+        <div class="skill-note">Still learning, improving day by day 🌸</div>
+      </div>
+
+      <div class="skill-ring reveal">
+        <svg class="ring-svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="50"/>
+          <circle class="ring-fill" cx="60" cy="60" r="50"/>
+        </svg>
+        <div class="ring-icon">⚙</div>
+        <div class="skill-name">System Prompting</div>
+        <div class="skill-tag tag-strong">Core Strength</div>
+        <div class="skill-note">Still learning, improving day by day 🌸</div>
+      </div>
+
+      <div class="skill-ring reveal">
+        <svg class="ring-svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="50"/>
+          <circle class="ring-fill" cx="60" cy="60" r="50"/>
+        </svg>
+        <div class="ring-icon">🧠</div>
+        <div class="skill-name">Chain-of-Thought (CoT)</div>
+        <div class="skill-tag tag-strong">Hands-on</div>
+        <div class="skill-note">Still learning, improving day by day 🌸</div>
+      </div>
+
+      <div class="skill-ring reveal">
+        <svg class="ring-svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="50"/>
+          <circle class="ring-fill" cx="60" cy="60" r="50"/>
+        </svg>
+        <div class="ring-icon">🐍</div>
+        <div class="skill-name">Python</div>
+        <div class="skill-tag tag-learning">Currently Learning</div>
+        <div class="skill-note">Still learning, improving day by day 🌸</div>
+      </div>
+
+      <div class="skill-ring reveal">
+        <svg class="ring-svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="50"/>
+          <circle class="ring-fill" cx="60" cy="60" r="50"/>
+        </svg>
+        <div class="ring-icon">🔁</div>
+        <div class="skill-name">Automation (n8n)</div>
+        <div class="skill-tag tag-learning">Currently Learning</div>
+        <div class="skill-note">Still learning, improving day by day 🌸</div>
+      </div>
+
+      <div class="skill-ring reveal">
+        <svg class="ring-svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="50"/>
+          <circle class="ring-fill" cx="60" cy="60" r="50"/>
+        </svg>
+        <div class="ring-icon">🤖</div>
+        <div class="skill-name">AI / ML Foundations</div>
+        <div class="skill-tag tag-learning">Currently Enrolled</div>
+        <div class="skill-note">Still learning, improving day by day 🌸</div>
+      </div>
+    </div>
+
+    <div class="skill-chips reveal">
+      <span class="chip">LLM Architectures</span>
+      <span class="chip">Few-shot Learning</span>
+      <span class="chip">Context Engineering</span>
+      <span class="chip">Agentic Workflows</span>
+      <span class="chip">JSON Output Design</span>
+      <span class="chip">Prompt Chaining</span>
+      <span class="chip">Tool Calling</span>
+    </div>
+
+    <p class="growth-quote reveal">
+      "I don't measure myself in percentages —<br>
+      I measure myself in the questions I ask today that I couldn't ask yesterday." 🌱
+    </p>
+  </div>
+</section>
+
+<!-- ===================== PROBLEMS I SOLVE ===================== -->
+<section id="problems">
+  <div class="container">
+    <h2 class="section-title reveal">Problems I <span class="accent">Solve</span></h2>
+    <p class="section-sub reveal">Where I turn complexity into clarity</p>
+    <div class="problems-grid">
+      <div class="problem-card reveal" data-tilt>
+        <div class="problem-icon">🤖</div>
+        <h4>AI Agents</h4>
+        <p>Designing autonomous agents that reason, plan, and execute multi-step tasks with reliability.</p>
+      </div>
+      <div class="problem-card reveal" data-tilt>
+        <div class="problem-icon">📚</div>
+        <h4>RAG Systems</h4>
+        <p>Building Retrieval-Augmented Generation pipelines that ground LLMs in factual, real-time knowledge.</p>
+      </div>
+      <div class="problem-card reveal" data-tilt>
+        <div class="problem-icon">⚙️</div>
+        <h4>Structured Output</h4>
+        <p>Engineering prompts that produce clean JSON, schemas, and structured data — every single time.</p>
+      </div>
+      <div class="problem-card reveal" data-tilt>
+        <div class="problem-icon">📊</div>
+        <h4>AI Evaluation Frameworks</h4>
+        <p>Crafting rubrics and pipelines that measure model performance objectively and continuously.</p>
+      </div>
+      <div class="problem-card reveal" data-tilt>
+        <div class="problem-icon">🔁</div>
+        <h4>Workflow Automation</h4>
+        <p>Stitching n8n, AI, and APIs into seamless enterprise workflows that save hours daily.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOOLS ===================== -->
+<section id="tools">
+  <div class="container">
+    <h2 class="section-title reveal">My <span class="accent">Toolkit</span></h2>
+    <p class="section-sub reveal">Weapons of choice</p>
+  </div>
+  <div class="tools-marquee reveal">
+    <div class="tools-track">
+      <div class="tool"><span class="tool-emoji">🧠</span> ChatGPT</div>
+      <div class="tool"><span class="tool-emoji">🎭</span> Claude</div>
+      <div class="tool"><span class="tool-emoji">💎</span> Gemini</div>
+      <div class="tool"><span class="tool-emoji">🔍</span> DeepSeek</div>
+      <div class="tool"><span class="tool-emoji">🔗</span> n8n</div>
+      <div class="tool"><span class="tool-emoji">⚡</span> Prompt Studio</div>
+      <div class="tool"><span class="tool-emoji">🐍</span> Python</div>
+      <div class="tool"><span class="tool-emoji">🧠</span> ChatGPT</div>
+      <div class="tool"><span class="tool-emoji">🎭</span> Claude</div>
+      <div class="tool"><span class="tool-emoji">💎</span> Gemini</div>
+      <div class="tool"><span class="tool-emoji">🔍</span> DeepSeek</div>
+      <div class="tool"><span class="tool-emoji">🔗</span> n8n</div>
+      <div class="tool"><span class="tool-emoji">⚡</span> Prompt Studio</div>
+      <div class="tool"><span class="tool-emoji">🐍</span> Python</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EDUCATION TIMELINE ===================== -->
+<section id="education">
+  <div class="container">
+    <h2 class="section-title reveal">My <span class="accent">Journey</span></h2>
+    <p class="section-sub reveal">Roots that grow into the sky</p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2027 (Expected)</div>
+          <h4>B.Sc. Physics Honours</h4>
+          <p>Khemundi Higher Secondary College — currently pursuing while parallelly mastering AI.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2025 — Present</div>
+          <h4>AI / ML Specialization Course</h4>
+          <p>Deep diving into machine learning, neural networks, and modern AI architectures.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2024</div>
+          <h4>Higher Secondary (+2)</h4>
+          <p>Passed with <strong>First Division</strong> 🏆</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2022</div>
+          <h4>Matriculation (10th)</h4>
+          <p>Completed with <strong>First Division</strong> — the beginning of the dream.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem" class="reveal">
+      <div class="github-card">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.05c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.95 10.95 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+        <h3>Explore My Projects</h3>
+        <p>All my prompt engineering experiments, AI agents, and automation builds live on GitHub.</p>
+        <a href="https://github.com/ashishkumargouda" target="_blank" rel="noopener noreferrer" class="btn btn-primary">⚡ View GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title reveal">Let's <span class="accent">Connect</span></h2>
+    <p class="section-sub reveal">Your next great hire might be one message away</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Open to Opportunities ✨</h3>
+        <p>I'm a fresher hungry to learn, contribute, and grow with a team that values craft and curiosity. If that sounds like your company — let's talk.</p>
+        <div class="info-item">
+          <div class="info-icon">📧</div>
+          <div>
+            <div class="label">Email</div>
+            <div class="value">asishgouda26@gmail.com</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="label">Phone</div>
+            <div class="value">+91 78470 99747</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="label">Location</div>
+            <div class="value">Odisha, India</div>
+          </div>
+        </div>
+        <div class="socials">
+          <a class="social" href="https://github.com/ashishkumargouda" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.05c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.95 10.95 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+          </a>
+          <a class="social" href="https://www.linkedin.com/in/ashish-gouda-350644407" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a class="social" href="mailto:asishgouda26@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm10 9.5L2.5 7.2v10.3h19V7.2L12 13.5zM12 11l9-5.6H3l9 5.6z"/></svg>
+          </a>
+          <a class="social" href="tel:+917847099747" aria-label="Phone">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1.05l-2.21 2.16z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <input type="hidden" name="_subject" value="New message from portfolio website" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder=" " required autocomplete="name" />
+          <label for="name">Your Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
+          <label for="email">Your Email</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="subject" name="subject" placeholder=" " required />
+          <label for="subject">Subject</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" placeholder=" " required></textarea>
+          <label for="message">Your Message</label>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%;justify-content:center">✉ Send Message</button>
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="footer-sig">Ashish Kumar Gouda</div>
+  <p>Made with <span class="heart">💖</span> in Odisha, India · © 2026 · All rights reserved</p>
+  <p style="margin-top:.4rem;font-family:'Noto Serif JP',serif;color:var(--pink)">夢を追いかけて — Chasing the dream</p>
+</footer>
+
+<script>
+/* ===================== PRELOADER WITH FALLBACK ===================== */
+let preloaderHidden=false;
+const hidePreloader=()=>{
+  if(!preloaderHidden){
+    preloaderHidden=true;
+    const pl=document.getElementById('preloader');
+    if(pl)pl.classList.add('hidden');
+    initHero();
+  }
+};
+window.addEventListener('load',()=>{setTimeout(hidePreloader,1400);});
+// Safety fallback: hide after 5s no matter what
+setTimeout(hidePreloader,5000);
+
+/* ===================== CUSTOM CURSOR ===================== */
+const dot=document.querySelector('.cursor-dot');
+const ring=document.querySelector('.cursor-ring');
+const isTouch=window.matchMedia('(hover:none),(pointer:coarse)').matches;
+let mx=0,my=0,rx=0,ry=0;
+if(!isTouch){
+  window.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    if(dot){dot.style.left=mx+'px';dot.style.top=my+'px';}
+  });
+  function animateRing(){
+    rx+=(mx-rx)*.18;ry+=(my-ry)*.18;
+    if(ring){ring.style.left=rx+'px';ring.style.top=ry+'px';}
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+  document.querySelectorAll('a,button,.problem-card,.skill-ring,input,textarea,.tool,.chip').forEach(el=>{
+    el.addEventListener('mouseenter',()=>ring&&ring.classList.add('hover'));
+    el.addEventListener('mouseleave',()=>ring&&ring.classList.remove('hover'));
+  });
+}
+
+/* ===================== NAVBAR ===================== */
+const nav=document.getElementById('navbar');
+const burger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>40);
+});
+burger.addEventListener('click',()=>{
+  const isOpen=burger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+  burger.setAttribute('aria-expanded',isOpen);
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  burger.classList.remove('active');navLinks.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
+}));
+
+/* ===================== ACTIVE NAV LINK (SCROLL SPY) ===================== */
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(section=>{
+    const top=section.offsetTop-120;
+    if(window.scrollY>=top)current=section.getAttribute('id');
+  });
+  navLinks.querySelectorAll('a').forEach(a=>{
+    a.classList.toggle('active',a.getAttribute('href')===`#${current}`);
+  });
+});
+
+/* ===================== HERO ANIMATIONS ===================== */
+function initHero(){
+  const name="Ashish Kumar Gouda";
+  const heroName=document.getElementById('heroName');
+  if(!heroName)return;
+  heroName.innerHTML=name.split('').map((ch,i)=>{
+    if(ch===' ')return '<span class="letter">&nbsp;</span>';
+    const cls=i>=7?'letter gradient':'letter';
+    return `<span class="${cls}">${ch}</span>`;
+  }).join('');
+  if(window.gsap){
+    gsap.to('.hero-name .letter',{opacity:1,y:0,duration:.7,stagger:.05,ease:'back.out(1.7)'});
+    gsap.to('.hero-greet',{opacity:1,duration:1,delay:.3});
+    gsap.to('.typewriter-wrap',{opacity:1,duration:1,delay:1.4});
+    gsap.to('.hero-tagline',{opacity:1,duration:1,delay:1.8});
+    gsap.to('.hero-cta',{opacity:1,duration:1,delay:2.1});
+  }else{
+    document.querySelectorAll('.hero-name .letter').forEach(l=>{l.style.opacity=1;l.style.transform='none';});
+    document.querySelector('.hero-greet').style.opacity=1;
+    document.querySelector('.typewriter-wrap').style.opacity=1;
+    document.querySelector('.hero-tagline').style.opacity=1;
+    document.querySelector('.hero-cta').style.opacity=1;
+  }
+  startTypewriter();
+}
+
+/* Typewriter */
+function startTypewriter(){
+  const titles=['Prompt Engineer','System Prompt Architect','AI Automation Builder','Chain-of-Thought Designer'];
+  const el=document.getElementById('typewriter');
+  if(!el)return;
+  let ti=0,ci=0,deleting=false;
+  function tick(){
+    const cur=titles[ti];
+    el.textContent=cur.slice(0,ci);
+    if(!deleting && ci<cur.length){ci++;setTimeout(tick,90);}
+    else if(deleting && ci>0){ci--;setTimeout(tick,40);}
+    else{deleting=!deleting;if(!deleting)ti=(ti+1)%titles.length;setTimeout(tick,deleting?1500:300);}
+  }
+  tick();
+}
+
+/* ===================== STARS BACKGROUND ===================== */
+const starsCanvas=document.getElementById('stars-canvas');
+const sctx=starsCanvas.getContext('2d');
+let stars=[];
+function isMobileNow(){return window.innerWidth<768;}
+function resizeStars(){
+  starsCanvas.width=window.innerWidth;
+  starsCanvas.height=window.innerHeight;
+  const count=isMobileNow()?60:Math.min(180,Math.floor((window.innerWidth*window.innerHeight)/12000));
+  stars=Array.from({length:count},()=>({
+    x:Math.random()*starsCanvas.width,
+    y:Math.random()*starsCanvas.height,
+    r:Math.random()*1.6+.3,
+    a:Math.random(),
+    s:Math.random()*.02+.005
+  }));
+}
+function drawStars(){
+  sctx.clearRect(0,0,starsCanvas.width,starsCanvas.height);
+  for(const st of stars){
+    st.a+=st.s;if(st.a>1||st.a<0)st.s*=-1;
+    sctx.beginPath();sctx.arc(st.x,st.y,st.r,0,Math.PI*2);
+    sctx.fillStyle=`rgba(255,255,255,${Math.abs(st.a)*.8})`;sctx.fill();
+  }
+  requestAnimationFrame(drawStars);
+}
+resizeStars();drawStars();
+
+/* ===================== SAKURA PETALS ===================== */
+const sakuraCanvas=document.getElementById('sakura-canvas');
+const skctx=sakuraCanvas.getContext('2d');
+let petals=[];
+function resizeSakura(){
+  sakuraCanvas.width=window.innerWidth;
+  sakuraCanvas.height=window.innerHeight;
+  const count=isMobileNow()?10:32;
+  petals=Array.from({length:count},()=>createPetal());
+}
+function createPetal(){
+  return{
+    x:Math.random()*sakuraCanvas.width,
+    y:Math.random()*-sakuraCanvas.height,
+    size:Math.random()*6+5,
+    speedY:Math.random()*1.2+.5,
+    speedX:Math.random()*1-.5,
+    rot:Math.random()*Math.PI*2,
+    rotSpeed:(Math.random()-.5)*.04,
+    opacity:Math.random()*.6+.3
+  };
+}
+function drawPetal(p){
+  skctx.save();skctx.translate(p.x,p.y);skctx.rotate(p.rot);skctx.globalAlpha=p.opacity;
+  const grad=skctx.createRadialGradient(0,0,0,0,0,p.size);
+  grad.addColorStop(0,'#ffd1e8');grad.addColorStop(1,'#ff7eb9');
+  skctx.fillStyle=grad;skctx.beginPath();
+  for(let i=0;i<5;i++){
+    const a=(Math.PI*2/5)*i;
+    const x=Math.cos(a)*p.size;
+    const y=Math.sin(a)*p.size*1.4;
+    if(i===0)skctx.moveTo(x,y);else skctx.quadraticCurveTo(0,0,x,y);
+  }
+  skctx.closePath();skctx.fill();skctx.restore();
+}
+function animSakura(){
+  skctx.clearRect(0,0,sakuraCanvas.width,sakuraCanvas.height);
+  for(const p of petals){
+    p.y+=p.speedY;p.x+=p.speedX;p.rot+=p.rotSpeed;
+    if(p.y>sakuraCanvas.height+20){p.y=-20;p.x=Math.random()*sakuraCanvas.width;}
+    drawPetal(p);
+  }
+  requestAnimationFrame(animSakura);
+}
+resizeSakura();animSakura();
+
+/* Debounced resize handler */
+let resizeT;
+window.addEventListener('resize',()=>{
+  clearTimeout(resizeT);
+  resizeT=setTimeout(()=>{resizeStars();resizeSakura();},200);
+});
+
+/* ===================== SCROLL REVEAL ===================== */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ===================== PROBLEM CARD TILT (desktop only) ===================== */
+if(!isTouch){
+  document.querySelectorAll('[data-tilt]').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=e.clientX-r.left,y=e.clientY-r.top;
+      const rx=((y/r.height)-.5)*-12;
+      const ry=((x/r.width)-.5)*12;
+      card.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+      card.style.setProperty('--mx',x+'px');
+      card.style.setProperty('--my',y+'px');
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform='';});
+  });
+}
+
+/* ===================== CONTACT FORM (FormSubmit + mailto fallback) ===================== */
+const form=document.getElementById('contactForm');
+const formMsg=document.getElementById('formMsg');
+const submitBtn=document.getElementById('submitBtn');
+form.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  const n=form.name.value.trim();
+  const em=form.email.value.trim();
+  const s=form.subject.value.trim();
+  const m=form.message.value.trim();
+  formMsg.className='form-msg';formMsg.innerHTML='';
+
+  if(!n||!em||!s||!m){
+    formMsg.textContent='Please fill in all fields ✦';
+    formMsg.classList.add('error');return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){
+    formMsg.textContent='Please enter a valid email ✦';
+    formMsg.classList.add('error');return;
+  }
+
+  submitBtn.classList.add('btn-loading');
+  submitBtn.textContent='';
+
+  try{
+    const formData=new FormData(form);
+    const response=await fetch('https://formsubmit.co/ajax/asishgouda26@gmail.com',{
+      method:'POST',
+      body:formData,
+      headers:{'Accept':'application/json'}
+    });
+    if(response.ok){
+      formMsg.innerHTML='✨ Message sent successfully! Ashish will respond within 24 hours.';
+      formMsg.classList.add('success');
+      form.reset();
+    }else{throw new Error('FormSubmit failed');}
+  }catch(err){
+    const body=encodeURIComponent(`Hi Ashish,
+
+${m}
+
+— ${n} (${em})`);
+    const mailtoLink=`mailto:asishgouda26@gmail.com?subject=${encodeURIComponent(s)}&body=${body}`;
+    formMsg.innerHTML=`✨ <a href="${mailtoLink}">Click here to send via your email app</a> — or copy your message and email manually.`;
+    formMsg.classList.add('success');
+  }finally{
+    submitBtn.classList.remove('btn-loading');
+    submitBtn.textContent='✉ Send Message';
+    setTimeout(()=>{formMsg.className='form-msg';formMsg.innerHTML='';},10000);
+  }
+});
+
+/* ===================== PARALLAX HERO (desktop only) ===================== */
+if(!isTouch){
+  window.addEventListener('mousemove',e=>{
+    const x=(e.clientX/window.innerWidth-.5)*20;
+    const y=(e.clientY/window.innerHeight-.5)*20;
+    const wm=document.querySelector('.kanji-watermark');
+    if(wm)wm.style.transform=`translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+  });
+}
+</script>
+</body>
+</html>
